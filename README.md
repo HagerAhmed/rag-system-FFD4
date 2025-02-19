@@ -1,7 +1,7 @@
 # rag-system-FFD4
 
 
-This is a minimal implementation of the RAG model for question answering 
+This is a minimal implementation of the RAG system to analyze and answer questions related to the Fourth Financing for Development (FFD4) Conference documents, focusing on climate finance and Sustainable Development Goals (SDGs).
 
 ## Requirements 
 - Python 3.8 or later
@@ -15,8 +15,14 @@ $ conda create -n rag-system-FFD4 python
 ```
 3) Activate the environment:
 ``` bash 
-$ conda activate /home/hager/miniconda3/envs/rag-system-FFD4
+$ conda activate /home/hager/home/hager/miniconda310/envs/rag-system-FFD4
 ```
+or 
+
+``` bash 
+$ conda activate rag-system-FFD4
+```
+
 ### (Optional) Setup command line for better readability
 ``` bash 
 export PS1="\[\033[01;32m\]\u@\h:\w\n\[\033[00m\]\$ "
