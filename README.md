@@ -1,43 +1,36 @@
-# rag-system-FFD4
+# **Climate Finance Retrieval-Augmented Generation (RAG) System**
 
+## **Overview**
+This project implements a **Retrieval-Augmented Generation (RAG) system** for answering climate finance-related research questions. It combines **document retrieval**, **embeddings**, and a **large language model (LLM)** to generate well-informed responses.
 
-This is a minimal implementation of the RAG model for question answering 
+---
 
-## Requirements 
-- Python 3.8 or later
+## **Project Architecture**
+1. **Document Processing**  
+   - Documents are split into smaller **chunks**.  
+   - **Sentence-transformers/all-MiniLM-L6-v2** is used to generate **embeddings**.  
+   - Chunks and their embeddings are stored in a **ChromaDB** vector database.  
 
-#### Install Python using MiniConda 
-1) Download and install MiniConda from [here] (https://docs.anaconda.com/miniconda/#quick-command-line-install)
+2. **Retrieval & Query Processing**  
+   - User queries are matched with the most relevant document chunks.  
+   - The relevant chunk is passed to the **Mistral-7B-Instruct-v0.3** model for response generation.  
 
-2) Create a new environment using the following command:
-``` bash 
-$ conda create -n rag-system-FFD4 python
-```
-3) Activate the environment:
-``` bash 
-$ conda activate /home/hager/miniconda3/envs/rag-system-FFD4
-```
-### (Optional) Setup command line for better readability
-``` bash 
-export PS1="\[\033[01;32m\]\u@\h:\w\n\[\033[00m\]\$ "
-```
+3. **Evaluation**  
+   - **ROUGE and BLEU** scores measure response quality.  
+   - Evaluation criteria include **relevance, accuracy, and clarity**.  
 
-## Installation
+4. **User Interface**  
+   - A **Gradio** web interface allows users to submit research questions and receive responses.  
 
-### Install the required packages 
+---
 
-``` bash 
-pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org -r requirements.txt
-```
-### Setup the environment variables
-``` bash 
-$ cp .env.example .env 
-```
+## **Technologies Used**
+- **Python** (Main development language)  
+- **Hugging Face Transformers** (Embeddings & LLM)  
+- **ChromaDB** (Vector database for document retrieval)  
+- **Gradio** (User-friendly interface)  
+- **NLTK & ROUGE** (Text evaluation metrics)  
 
-Set your environment variables in the `.env` file. Like `OPENAI_API_KEY` value.
+---
 
-## Run the FastAPI server
-``` bash 
-$ uvicorn main:app --reload --host 0.0.0.0 --port 5000
-```
 
